@@ -69,7 +69,7 @@ float ShadowCalculation(vec4 fragPosLightSpace)
     return shadow;
 }
 void main()
-{   
+{
     vec3 result = vec3(0);
     vec3 normal = normalize(fs_in.Normal);
     vec3 lightColor = vec3(0.3);
