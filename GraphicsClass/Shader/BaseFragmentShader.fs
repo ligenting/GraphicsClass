@@ -47,7 +47,7 @@ vec3 Calculate(vec3 normal,PointLight pointLight){
     
     vec3 res;
     //res = (ambient+diffuse+specular);
-    res = (diffuse);
+    res = (ambient+diffuse+specular);
     vec3 add = vec3(0.3,0.1,0.7);
     //res = (ambient+diffuse+specular);
     return res;
@@ -69,7 +69,7 @@ float ShadowCalculation(vec4 fragPosLightSpace)
     return shadow;
 }
 void main()
-{
+{   
     vec3 result = vec3(0);
     vec3 normal = normalize(fs_in.Normal);
     vec3 lightColor = vec3(0.3);

@@ -1,5 +1,22 @@
 #version 330 core
 layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aNormal;
+layout (location = 2) in vec2 aTexCoords;
+
+out vec2 TexCoords;
+
+out VS_OUT {
+    vec3 FragPos;//世界坐标
+    vec3 Normal;//法线坐标
+    vec2 TexCoords;
+    vec4 FragPosLightSpace;
+} vs_out;
+
+uniform mat4 projection;//投影矩阵
+uniform mat4 view;//观察矩阵
+uniform mat4 model;//世界坐标变换矩阵
+uniform mat4 lightSpaceMatrix;//
+
 void main()
 {
     vs_out.FragPos = vec3(model * vec4(aPos, 1.0));//世界顶点
